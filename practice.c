@@ -55,6 +55,9 @@ int main(int argc, char *argv[])
   x = INT_MAX;
   y = 1 << 31;
   float f = INT_MIN + 1;
+  unsigned frac_mask;
+  frac_mask = ~0;
+  frac_mask = frac_mask >> 9;
   /* int s1 = !!((x ^ y) >> 31); */
   /* int s2 = !(((x + y) ^ x) >> 3/\* 1); *\/ */
   /* print_bits(-822083584); */
@@ -62,7 +65,8 @@ int main(int argc, char *argv[])
   /* printf("%d\n", float_i2f(INT_MIN)); */
   /* printf("%d\n", INT_MIN>>31); */
   /* printf("%d\n", isGreater(INT_MIN, 0)); */
-  print_bits(-35);
+  print_bits(0x7FFFFF);
+  print_bits(frac_mask);
   print_bits(-3);
   /* return 0 */;
 }
